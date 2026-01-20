@@ -1,0 +1,40 @@
+{
+  "thresholds": {
+    "wiki_min_relevance_score": 0.5,
+    "teyit_min_relevance_score": 0.5,
+    "overall_min_documents": 1
+  },
+  "chain_of_thought": {
+    "enabled": true,
+    "require_verdict": true,
+    "max_reasoning_tokens": 512,
+    "verdict_keywords": [
+      "DOĞRUDUR",
+      "YANLIŞTIR",
+      "DOĞRULAMAZ"
+    ]
+  },
+  "fallback_strategies": {
+    "primary": "model_knowledge",
+    "secondary": "web_search",
+    "tertiary": "generic_response"
+  },
+  "model_knowledge": {
+    "enabled": true,
+    "system_prompt": "You are a helpful AI assistant. Answer the user's question based on your general knowledge. Be honest about what you know and don't know."
+  },
+  "web_search": {
+    "enabled": true,
+    "max_results": 3,
+    "system_prompt": "You are a helpful AI assistant. Use the web search results to provide an accurate and up-to-date answer to the user's question."
+  },
+  "generic_response": {
+    "enabled": true,
+    "message": "I couldn't find relevant information in my knowledge base to answer your question accurately. You might want to try searching the web for more specific information."
+  },
+  "logging": {
+    "enabled": true,
+    "log_file": "logs/fallback_events.log",
+    "log_level": "INFO"
+  }
+}

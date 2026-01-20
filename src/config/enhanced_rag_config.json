@@ -1,0 +1,90 @@
+{
+  "content_analysis": {
+    "enabled": true,
+    "quality_weights": {
+      "factual_accuracy": 0.3,
+      "relevance": 0.25,
+      "credibility": 0.2,
+      "completeness": 0.15,
+      "directness": 0.1
+    },
+    "thresholds": {
+      "min_quality_for_response": 0.4,
+      "min_factual_accuracy": 0.3,
+      "min_relevance_score": 0.5,
+      "min_completeness_score": 0.3,
+      "min_source_credibility": 0.4
+    },
+    "fact_extraction": {
+      "max_facts_per_document": 5,
+      "min_fact_length": 20,
+      "max_fact_length": 200,
+      "keyword_overlap_threshold": 0.3
+    },
+    "source_credibility": {
+      "teyit_base_score": 0.85,
+      "wiki_base_score": 0.75,
+      "positive_indicators": [
+        "kaynak", "referans", "araştırma", "uzman", "bilimsel",
+        "doğrulanmış", "resmi", "güvenilir", "teyit.org"
+      ],
+      "negative_indicators": [
+        "söylenti", "iddia", "hissedar", "kaynaksız", "doğrulanmamış"
+      ]
+    }
+  },
+  "response_generation": {
+    "max_summary_tokens": 150,
+    "max_explanation_tokens": 400,
+    "temperature": 0.6,
+    "structured_output": {
+      "include_verdict": true,
+      "include_confidence": true,
+      "include_summary": true,
+      "include_key_facts": true,
+      "include_explanation": true,
+      "include_sources": true,
+      "include_analysis_metadata": false
+    },
+    "verdit_determination": {
+      "teyit_high_accuracy_threshold": 0.8,
+      "teyit_low_accuracy_threshold": 0.3,
+      "general_high_quality_threshold": 0.7,
+      "general_low_quality_threshold": 0.3
+    }
+  },
+  "smart_fallback": {
+    "enabled": true,
+    "use_content_analysis": true,
+    "quality_threshold": 0.4,
+    "fallback_triggers": {
+      "low_overall_quality": true,
+      "low_factual_accuracy": true,
+      "low_relevance_score": true,
+      "no_key_facts": true,
+      "insufficient_documents": true
+    },
+    "min_documents_threshold": 1,
+    "analysis_weight_in_decision": 0.7
+  },
+  "logging": {
+    "enabled": true,
+    "log_file": "logs/enhanced_rag_events.log",
+    "log_level": "INFO",
+    "log_content_analysis": true,
+    "log_response_generation": true,
+    "log_fallback_decisions": true
+  },
+  "performance": {
+    "cache_content_analysis": false,
+    "max_analysis_time_seconds": 30,
+    "parallel_document_processing": false,
+    "batch_size": 3
+  },
+  "experimental_features": {
+    "enabled": false,
+    "semantic_similarity_threshold": 0.7,
+    "cross_source_validation": false,
+    "confidence_calibration": false
+  }
+}

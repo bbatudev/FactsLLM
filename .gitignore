@@ -1,0 +1,64 @@
+# Python Standard
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.env
+
+# Large Data & Models Directories
+models/*
+!models/README.md
+!models/.gitkeep
+data/*
+!data/README.md
+!data/.gitkeep
+modelegit/
+unsloth_compiled_cache/
+logs/*
+!logs/README.md
+!logs/.gitkeep
+archive/
+
+# Large File Extensions (Global Safety Net)
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.gguf
+*.h5
+*.onnx
+*.index
+*.joblib
+*.pkl
+
+# Specific Large Files (>10MB)
+*.jsonl
+fever_alpaca_evidence_aware.json
+teyit_documents.json
+teyit_documents_clean.json
+
+# IDE Settings
+.vscode/
+.idea/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Root-level unnecessary files
+dataset_analysis_report.md
+index_performance_comparison.json
+test_results*.json
+*.resolved
+
+# Test files in root
+test_*.py
+
+# Deprecated code
+src/core/artikkullanilmiyoryedek/
